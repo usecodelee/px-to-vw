@@ -8,8 +8,17 @@
 		"vscode": "^1.33.0"
 	},
 	"categories": [
-		"Other"
-	],
+        "Formatters",
+        "Snippets",
+        "Other"
+    ],"keywords": [
+        "px",
+        "vw",
+        "viewport",
+        "px to vw",
+        "px to viewport"
+    ],
+    "icon": "img/VW.png",
 	"activationEvents": [
 		"onCommand:extension.pxToVw",
         "onCommand:extension.vwToPx",
