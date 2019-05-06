@@ -1,0 +1,64 @@
+{
+	"name": "px-to-vw",
+	"displayName": "px-to-vw",
+	"description": "px to viewport",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.pxToVw",
+        "onCommand:extension.vwToPx",
+        "onCommand:extension.pxTovwAndVwToPx"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration":{
+            "title": "Px to vw configuration",
+            "properties": {
+                "px-to-vw.viewportWidth": {
+                    "type": "integer",
+                    "default": 750,
+                    "description": "viewportWidth"
+                },
+                "px-to-vw.unitPrecision": {
+                    "type": "integer",
+                    "default": 3,
+                    "description": "unitPrecision(几位小数)"
+                }
+			}
+		},
+
+		"commands": [
+			{
+				"command": "extension.pxToVw",
+				"title": "Px to vw: Converts px to vw"
+			},
+			{
+				"command": "extension.vwToPx",
+				"title": "Vw to px: Convert vw to px"
+			},
+			{
+				"command": "extension.pxTovwAndVwToPx",
+				"title": "Px to vw, and vw to px. Converts selected text from px to vw, and vw to px."
+			}
+		],
+		"keybindings": [
+            {"command": "extension.pxTovwAndVwToPx","key": "Alt+z"}
+        ]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
