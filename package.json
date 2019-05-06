@@ -3,6 +3,7 @@
 	"displayName": "px-to-vw",
 	"description": "px to viewport",
 	"version": "0.0.1",
+	"publisher":"leechaojiang",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
