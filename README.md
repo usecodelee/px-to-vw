@@ -21,7 +21,11 @@ For example :
 This extension contributes the following settings:
 
 * `px-to-vw.viewportWidth`: number of viewportWidth. Default is 750px.
-* `px-to-vw.unitPrecision`: maximum number of decimals digits a px or vw can have
+* `px-to-vw.unitPrecision`: maximum number of decimals digits a px or vw can have. Default is 3.
+
+## github
+
+https://github.com/usecodelee/px-to-vw
 
 -----------------------------------------------------------------------------------------------------------
 
