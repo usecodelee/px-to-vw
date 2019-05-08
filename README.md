@@ -25,7 +25,7 @@ This extension contributes the following settings:
 
 ## github
 
-https://github.com/usecodelee/px-to-vw
+https://github.com/usecodelee/px-to-vw 
 
 -----------------------------------------------------------------------------------------------------------
 
