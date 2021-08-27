@@ -12,7 +12,7 @@ function activate(context) {
         const config = vscode.workspace.getConfiguration("px-to-vw");
         const viewportWidth = config.get('viewportWidth');
         var regexStr = "([0-9]*\\.?[0-9]+)px";
-        placeholder(regexStr, (match, value) => `${px2Vw(value, viewportWidth)}vw`, textEditor, textEditorEdit);
+        placeholder(regexStr, (match, value) => `${px2Vw(value, viewportWidth)}`, textEditor, textEditorEdit);
     });
     context.subscriptions.push(disposable);
 
@@ -20,7 +20,7 @@ function activate(context) {
         const config = vscode.workspace.getConfiguration("px-to-vw");
         const viewportWidth = config.get('viewportWidth');
         var regexStr = "([0-9]*\\.?[0-9]+)(px|vw)";
-        placeholder(regexStr, (match, value, unit) => unit == "px" ? `${px2Vw(value, viewportWidth)}vw` : `${vw2Px(value, viewportWidth)}px`, textEditor, textEditorEdit);
+        placeholder(regexStr, (match, value, unit) => unit == "px" ? `${px2Vw(value, viewportWidth)}` : `${vw2Px(value, viewportWidth)}px`, textEditor, textEditorEdit);
     });
     context.subscriptions.push(disposable);
 }
@@ -32,9 +32,14 @@ function deactivate() {
 function px2Vw(px, viewportWidth) {
     if (viewportWidth == 0) { return 0; }
     const config = vscode.workspace.getConfiguration("px-to-vw");
-    var unitPrecision = config.get('unitPrecision');
-    const value = parseFloat(((px * 100)/ viewportWidth).toFixed(unitPrecision));
-    return value;
+    const ignoreList = (config.get('ignorePx2Vw') || []).map(i => i.replace('px',''));
+    if(ignoreList.includes(px)){
+        return `${px}px`;
+    } else {
+        var unitPrecision = config.get('unitPrecision');
+        const value = parseFloat(((px * 100)/ viewportWidth).toFixed(unitPrecision));
+        return `${value}vw`;
+    }
 }
 function vw2Px(vw, viewportWidth) {
     const config = vscode.workspace.getConfiguration("px-to-vw");

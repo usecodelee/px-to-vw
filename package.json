@@ -2,7 +2,7 @@
 	"name": "px-to-vw",
 	"displayName": "px-to-vw",
 	"description": "px to viewport",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher":"leechaojiang",
 	"engines": {
 		"vscode": "^1.33.0"
@@ -38,6 +38,11 @@
                     "type": "integer",
                     "default": 3,
                     "description": "unitPrecision(几位小数)"
+                },
+                "px-to-vw.ignorePx2Vw": {
+                    "type": "array",
+                    "default": ["1px", "0.5px"],
+                    "description": "px转为vw时忽略哪些值"
                 }
 			}
 		},
